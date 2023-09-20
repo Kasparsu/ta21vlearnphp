@@ -28,10 +28,22 @@ $num -= 2;
 $num--;
 $num *= 2;
 $num /= 3;
-$num %= 2;
+//$num %= 2;
 $text = 'hello' . 'hi' . 5;
 
 if(true == true){
 
 }
 $bool = $num > 10;
+$bool = $num < 10;
+$bool = $num >= 10;
+$bool = $num <= 10;
+$bool = $num == 10;
+$bool = $num === 10;
+$bool = $num != 10;
+$bool = $num !== 10;
+$bool = true && false;
+$bool = true || false;
+$bool = !true;
+$bool = true && false || true && !true;
+$null = null;
