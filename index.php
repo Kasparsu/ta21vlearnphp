@@ -1,49 +1,48 @@
 <?php
 
-$num = 1;
-$num = 1.2;
-var_dump($num);
-$text = 'string $num \n';
-echo $text;
-$text = "string $num \n";
-echo $text;
-$array = array(1,2,3,4);
-$array = [1,2,3,4];
-$array = [
-    6 => 4,
-    1,
-    'asd',
-    'color' => 'red',
-    3,
-    4,
-    6,
-];
-var_dump($array);
+class Box {
+    protected $width;
+    protected $height;
+    protected $length;
 
-$num = 1;
-$num = $num + 1;
-$num += 1;
-$num++;
-$num -= 2;
-$num--;
-$num *= 2;
-$num /= 3;
-//$num %= 2;
-$text = 'hello' . 'hi' . 5;
-
-if(true == true){
-
+    public function __construct($width, $height, $length) {
+        $this->width = $width;
+        $this->height = $height;
+        $this->length = $length;
+    }
+    public function volume(){
+        return $this->width * $this->height * $this->length;
+    }
 }
-$bool = $num > 10;
-$bool = $num < 10;
-$bool = $num >= 10;
-$bool = $num <= 10;
-$bool = $num == 10;
-$bool = $num === 10;
-$bool = $num != 10;
-$bool = $num !== 10;
-$bool = true && false;
-$bool = true || false;
-$bool = !true;
-$bool = true && false || true && !true;
-$null = null;
+
+class MetalBox extends Box {
+    use Colorful;
+
+    public $weight;
+
+    public function mass(){
+        return $this->volume() * $this->weight;
+    }
+}
+
+trait Colorful {
+    public $color;
+
+    public function getColor(){
+        return $this->color;
+    }
+}
+
+
+
+$box = new Box(1, 2, 3);
+var_dump($box);
+$box2 = new Box(4, 5, 6);
+var_dump($box2);
+var_dump($box);
+var_dump($box->volume());
+$metalbox = new MetalBox(5, 2, 5);
+$metalbox->weight = 2;
+var_dump($metalbox->height);
+var_dump($metalbox->volume());
+var_dump($metalbox->mass());
