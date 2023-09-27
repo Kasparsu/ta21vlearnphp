@@ -1,7 +1,3 @@
-<?php
-    $name = 'Kaspar';
-?>
-
 <?php include __DIR__ . '/partials/header.php' ?> 
     <h1>Hello!!!! <?=1+2?> <?=$name?></h1>
     <ul>
