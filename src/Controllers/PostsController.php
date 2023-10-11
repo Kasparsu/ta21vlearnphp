@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Exceptions\NotFoundException;
 use App\Models\Post;
 
 class PostsController {
@@ -23,7 +24,7 @@ class PostsController {
         if($post){
             view('posts/show', compact('post'));
         } else {
-            echo 404;
+            throw new NotFoundException();
         }
     }
     public function edit(){
@@ -31,7 +32,7 @@ class PostsController {
         if($post){
             view('posts/edit', compact('post'));
         } else {
-            echo 404;
+            throw new NotFoundException();
         }
     }
     public function update(){
@@ -42,7 +43,7 @@ class PostsController {
             $post->save();
             header('Location: /admin/posts');
         } else {
-            echo 404;
+            throw new NotFoundException();
         }
     }
     public function destroy(){
@@ -51,7 +52,7 @@ class PostsController {
             $post->delete();
             header('Location: /admin/posts');
         } else {
-            echo 404;
+            throw new NotFoundException();
         }
     }
 }
