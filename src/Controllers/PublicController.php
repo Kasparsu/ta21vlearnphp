@@ -8,6 +8,7 @@ use App\Models\User;
 class PublicController {
     public function index(){
         $posts = Post::all();
+        dump($posts);
         view('index', compact('posts'));
         //view('index', ['name'=>$name]);
     }
