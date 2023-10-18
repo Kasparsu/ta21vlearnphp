@@ -1,7 +1,5 @@
 <?php
 
-// var_dump($_SERVER);
-
 use App\Exceptions\NotFoundException;
 
 spl_autoload_register(function ($class) {
@@ -9,6 +7,8 @@ spl_autoload_register(function ($class) {
     $class = substr($class, 4);
     require_once __DIR__ . "/../src/$class.php";
 });
+
+session_start();
 
 include __DIR__ . '/../routes.php';
 include __DIR__ . '/../helpers.php';
